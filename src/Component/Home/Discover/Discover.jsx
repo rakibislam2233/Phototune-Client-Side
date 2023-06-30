@@ -22,7 +22,6 @@ const Discover = () => {
             />
             <div className="flex justify-between font-medium">
               <h2 className="text-xl font-semibold">
-                {" "}
                 Duck Natural Photography
               </h2>
               <h2 className="flex gap-2 items-center">$160</h2>

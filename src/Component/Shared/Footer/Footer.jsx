@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="w-full py-20">
+        <div className="w-full py-20 px-5 md:px-0">
             <Container>
-                <div className="md:flex justify-between gap-8 p-5 space-y-6 md:space-y-0">
+                <div className="md:flex justify-between gap-8 py-5 space-y-6 md:space-y-0">
                     <div  className="w-full space-y-3 md:w-[40%]">
                         <h1 className="text-3xl font-semibold">Phototune</h1>
                         <h3 className="tracking-wider">Why I say old chap that is sping lavatory chip shop gosh off his smashing boot are you taking the piss posh loo brilliant matie boy young.!!</h3>
