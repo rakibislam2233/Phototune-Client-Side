@@ -39,8 +39,8 @@ const Register = () => {
               photoURL: imageUrl,
             });
             const userInfo = { name, email, imageUrl };
-            fetch(`http://localhost:5000/users/${email}`, {
-              method: "PUT",
+            fetch(`http://localhost:5000/users`, {
+              method: "POST",
               headers: {
                 "content-type": "application/json",
               },
@@ -78,7 +78,7 @@ const Register = () => {
           email: user?.email,
           imageUrl: user.photoURL,
         };
-        fetch(`http://localhost:5000/users/${user?.email}`, {
+        fetch(`https://phototune-server-side.vercel.app/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -196,9 +196,9 @@ const Register = () => {
             <div className="py-3">
               <button
                 type="submit"
-                className="border border-teal-500 hover:bg-teal-500 transition-all duration-500 w-full rounded-full py-3 text-white"
+                className="border border-teal-500 hover:bg-teal-500 transition-all duration-500 w-full rounded-full py-3 text-white font-semibold"
               >
-                Create My Account
+                Create Account
               </button>
             </div>
           </form>

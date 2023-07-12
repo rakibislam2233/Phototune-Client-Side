@@ -6,12 +6,6 @@ const Discover = () => {
       <Container>
         <div className="w-full bg-[#1F1F1F] shadow-lg rounded-full flex justify-between items-center py-5 px-8 ">
           <h2 className="text-2xl font-semibold">Discover</h2>
-          <select className="py-2 bg-[#1F1F1F] px-8  border rounded-full font-semibold">
-            <option value="Recently Added1">Filter</option>
-            <option value="price">Price</option>
-            <option value="time">Time</option>
-            <option value="date">Date</option>
-          </select>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 pt-10 lg:grid-cols-3 gap-5">
           <div className="w-full h-full bg-[#1F1F1F] p-6 rounded-2xl space-y-3 cursor-pointer">
@@ -157,6 +151,11 @@ const Discover = () => {
               Buy Now
             </button>
           </div>
+        </div>
+        <div className="flex justify-center pt-10">
+        <button className="py-3 px-8 bg-teal-500  rounded-full hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-500 font-semibold">
+              View All
+            </button>
         </div>
       </Container>
     </div>

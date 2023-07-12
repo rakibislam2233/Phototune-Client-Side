@@ -44,8 +44,8 @@ const Login = () => {
     .then((result) => {
       const user = result.user;
       const userInfo = {name:user.displayName,email:user?.email,imageUrl:user.photoURL}
-      fetch(`http://localhost:5000/users/${user?.email}`,{
-        method:"PUT",
+      fetch(`http://localhost:5000/users`,{
+        method:"POST",
         headers:{
           'content-type': 'application/json'
         },
@@ -53,6 +53,7 @@ const Login = () => {
       })
       .then(res=>res.json())
       .then(data=>{
+        console.log(data);
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -78,7 +79,7 @@ const Login = () => {
       <div className="flex justify-center items-center pt-32">
         <div className="w-full max-w-[500px] p-6 rounded-2xl sm:p-10 bg-[#1B1B1B] shadow-lg border border-gray-800">
           <h2 className="text-2xl font-bold text-center py-2">
-            Login To Musicy
+            Sign in To Phototune
           </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
             <div className="space-y-4">
@@ -121,9 +122,9 @@ const Login = () => {
             <div className="py-3">
               <button
                 type="submit"
-                className="hover:bg-teal-500 transition-all duration-500 border border-teal-500 w-full rounded-full py-3 text-white"
+                className="hover:bg-teal-500 transition-all duration-500 border font-semibold border-teal-500 w-full rounded-full py-3 text-white"
               >
-                Login
+                Continue
               </button>
             </div>
           </form>
