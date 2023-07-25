@@ -14,6 +14,9 @@ import PaymentHistory from "../../Layout/Dashboard/Component/User/PaymentHistory
 import AddPhotography from "../../Layout/Dashboard/Component/User/AddPhotography";
 import Photography from "../../Component/Photography/Photography";
 import ManagePhotography from "../../Layout/Dashboard/Component/Admin/ManagePhotography";
+import PhotographyDetails from "../../Component/Photography/PhotographyDetails";
+import Author from "../../Component/Author/Author";
+import AuthorDetails from "../../Component/Author/AuthorDetails";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +34,22 @@ const router = createBrowserRouter([
           element:<Photography></Photography>
         }
         ,
+        {
+          path:'/singlePhotography/:id',
+          element:<PhotographyDetails></PhotographyDetails>
+        }
+        ,
+        {
+          path:'/author',
+          element:<Author></Author>
+        }
+        ,
+        {
+          path:'/authorDetails/:id',
+          element:<AuthorDetails></AuthorDetails>
+        }
+        ,
+
         {
           path:'/register',
           element:<Register></Register>

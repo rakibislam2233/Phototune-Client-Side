@@ -13,9 +13,9 @@ import Lottie from "lottie-react";
 import loader from "../../assets/lottie/loading.json";
 const Dashboard = () => {
   const { user } = useContext(UserContext);
+  console.log(user);
   const [isAdmin,isLoading2] = useAdmin();
   const [isHost,isLoading,refetch] = useHost();
-  console.log(isAdmin);
   const makeHost = () => {
     axios
       .put(`http://localhost:5000/setHost/${user?.email}`)
@@ -39,8 +39,8 @@ const Dashboard = () => {
           <div className="text-center">
             <Link to="home">
               <img
-                className="w-32 h-28 rounded-full cursor-pointer"
-                src="https://i.postimg.cc/dtksy36f/logo.png"
+                className="w-32 h-32 rounded-full cursor-pointer"
+                src={user?.photoURL}
                 alt=""
               />
             </Link>

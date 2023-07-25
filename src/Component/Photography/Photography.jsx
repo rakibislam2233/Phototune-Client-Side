@@ -3,6 +3,7 @@ import { useState } from "react";
 import usePhotography from "../Hook/usePhotography";
 import Container from "../Shared/Container/Container";
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 const Photography = () => {
   const [photography, ,] = usePhotography();
   // const data = [
@@ -25,7 +26,7 @@ const Photography = () => {
   const slicedData = photography?.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className="w-full py-24">
+    <div className="w-full py-28">
       <Container>
         <h2 className="text-3xl pt-5 font-semibold text-center">
           All Photography
@@ -71,9 +72,11 @@ const Photography = () => {
                     {photo.availableStock} in stock
                   </h2>
                 </div>
-                <button className="w-full py-3 px-8 bg-teal-500 hover:-translate-y-1 rounded-full hover:bg-white hover:text-black transition-all duration-500 font-semibold">
+               <Link to={`/singlePhotography/${photo._id}`}>
+               <button className="w-full py-3 mt-5 px-8 bg-teal-500 hover:-translate-y-1 rounded-full hover:bg-white hover:text-black transition-all duration-500 font-semibold">
                   View Details
                 </button>
+               </Link>
               </div>
             </>
           ))}

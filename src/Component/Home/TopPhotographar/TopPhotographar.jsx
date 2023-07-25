@@ -8,15 +8,13 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import SetctionTitle from "../../Shared/SetctionTitle/SetctionTitle";
 import useGetUser from "../../Hook/useGetUser";
-import Lottie from "lottie-react";
-import loader from "../../../assets/lottie/loading.json";
+import { Link } from "react-router-dom";
 const TopPhotographar = () => {
-  const [users,isLoading] = useGetUser();
+  const [users] = useGetUser();
   const topAuthor =  users.filter(user=>user.role==="host")
   return (
     <>
-    {
-      isLoading ? <div className="w-full h-screen flex justify-center items-center"><Lottie className="w-52" animationData={loader} loop={true} /></div> :  <div className="w-full py-10">
+    { <div className="w-full py-10">
       <Container>
         <SetctionTitle name={"Top Author"}></SetctionTitle>
         <div className="pt-10">
@@ -50,6 +48,7 @@ const TopPhotographar = () => {
             {
               topAuthor?.slice(0,8).map(author=><>
               <SwiperSlide>
+              <Link to={`/authorDetails/${author._id}`}>
               <div className="w-full h-full  bg-[#1F1F1F] py-10 px-5 rounded-2xl space-y-5 cursor-pointer">
                 <div className="flex justify-between items-center">
                   <button className="btn btn-sm bg-amber-500 text-xl text-white border-none">
@@ -77,6 +76,7 @@ const TopPhotographar = () => {
                   <h2>3 in Stock</h2>
                 </div>
               </div>
+              </Link>
             </SwiperSlide></>)
             }
             

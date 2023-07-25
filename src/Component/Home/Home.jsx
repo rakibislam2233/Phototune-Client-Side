@@ -8,20 +8,20 @@ import TopBuyer from "./TopBuyer/TopBuyer";
 import TopPhotographar from "./TopPhotographar/TopPhotographar";
 
 const Home = () => {
-    return (
-        <div>
-            <Banner></Banner>
-            <div className="p-5">
-            <Auction></Auction>
-            <TopPhotographar></TopPhotographar>
-            <TopBuyer></TopBuyer>
-            <Discover></Discover>
-            <Sellpages></Sellpages>
-            <Blogs></Blogs>
-            <Collaborate></Collaborate>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <div className="p-5">
+        <Auction></Auction>
+        <TopPhotographar></TopPhotographar>
+        <TopBuyer></TopBuyer>
+        <Discover></Discover>
+        <Sellpages></Sellpages>
+        <Blogs></Blogs>
+        <Collaborate></Collaborate>
+      </div>
+    </div>
+  );
 };
 
 export default Home;

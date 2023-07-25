@@ -8,7 +8,7 @@ const Footer = () => {
             <Container>
                 <div className="md:flex justify-between gap-8 py-5 space-y-6 md:space-y-0">
                     <div  className="w-full space-y-3 md:w-[40%]">
-                        <h1 className="text-3xl font-semibold">Phototune</h1>
+                        <h3 className="text-xl font-semibold text-teal-500">Phototune</h3>
                         <h3 className="tracking-wider">Why I say old chap that is sping lavatory chip shop gosh off his smashing boot are you taking the piss posh loo brilliant matie boy young.!!</h3>
                         <div className="flex gap-5">
                             <BsFacebook className="w-6 h-6"></BsFacebook>

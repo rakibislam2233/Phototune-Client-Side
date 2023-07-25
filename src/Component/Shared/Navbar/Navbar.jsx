@@ -19,7 +19,7 @@ const Navbar = () => {
       <Container>
         <div className="w-full h-24 flex justify-between items-center px-5">
           <div>
-            <h3 className="text-2xl font-semibold text-teal-500">Phototune</h3>
+           <img  className="w-40 h-40" src="https://i.postimg.cc/3RcPXm7b/logo.png" alt="" />
           </div>
           <div className="hidden md:block">
             <ul className="flex gap-5 font-semibold">
@@ -27,13 +27,10 @@ const Navbar = () => {
                 <NavLink to={'/'}>Home</NavLink>
               </li>
               <li className="hover:-translate-y-1 transition-all duration-500">
-                <NavLink to={'/auction'}>Auction</NavLink>
-              </li>
-              <li className="hover:-translate-y-1 transition-all duration-500">
                 <NavLink to={'/photography'}>Photography</NavLink>
               </li>
               <li className="hover:-translate-y-1 transition-all duration-500">
-                <NavLink>Author</NavLink>
+                <NavLink to={'/author'}>Author</NavLink>
               </li>
               <li className="hover:-translate-y-1 transition-all duration-500">
                 <NavLink>Blogs</NavLink>
