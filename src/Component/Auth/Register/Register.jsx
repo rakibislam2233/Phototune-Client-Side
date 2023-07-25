@@ -47,17 +47,9 @@ const Register = () => {
               body: JSON.stringify(userInfo),
             })
               .then((res) => res.json())
-              .then((data) => {
-                console.log(data);
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Create New User Successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
+              .then(() => {
+                naviget('/')
                 reset();
-                naviget("/login");
               })
               .catch((err) => {
                 toast.error(err.message);
@@ -78,7 +70,7 @@ const Register = () => {
           email: user?.email,
           imageUrl: user.photoURL,
         };
-        fetch(`https://phototune-server-side.vercel.app/users/${user?.email}`, {
+        fetch(`http://localhost:5000/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

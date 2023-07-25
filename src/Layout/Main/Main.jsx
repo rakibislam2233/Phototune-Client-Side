@@ -3,7 +3,7 @@ import Navbar from "../../Component/Shared/Navbar/Navbar";
 import Footer from "../../Component/Shared/Footer/Footer";
 const Main = () => {
     return (
-        <div className="w-full bg-[#1B1B1B] text-white">
+        <div className="w-full bg-[#1B1B1B] text-white box-border">
           <Navbar></Navbar>
           <Outlet></Outlet>
           <Footer></Footer>

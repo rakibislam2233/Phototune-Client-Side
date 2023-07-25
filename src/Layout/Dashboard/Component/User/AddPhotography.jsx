@@ -4,7 +4,10 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../Provider/Authprovider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import moment from "moment/moment";
 const AddPhotography = () => {
+  const date =  moment().format('MMMM DD, YYYY');
+  console.log(date);
     const {user} = useContext(UserContext)
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -18,7 +21,7 @@ const AddPhotography = () => {
         .then(res=>{
           const imageUrl = res.data.data.display_url;
           const {PhotographyName,AuthorName,AuthorEmail,price,Stock} = data;
-          const PhotoInfo = {PhotographyName,AuthorName,image:imageUrl,price:parseInt(price) ,availableStock:parseInt(Stock),AuthorEmail,status:'Pending'};
+          const PhotoInfo = { photographyName:PhotographyName,authorName:AuthorName,image:imageUrl,price:parseInt(price),publishedDate:date,availableStock:parseInt(Stock),authorEmail:AuthorEmail,status:'Pending'};
           axios.post(`http://localhost:5000/hostPhotography`, PhotoInfo)
           .then(res=>{
             if(res.data.insertedId){
@@ -39,11 +42,11 @@ const AddPhotography = () => {
         
     }
     return (
-        <div className="w-full md:w-[75%] h-full py-10 mx-auto px-5 text-white ">
-        <h2 className="text-center text-3xl font-semibold py-2">Add a Class</h2>
+        <div className="w-full md:w-[75%] h-full py-10 mx-auto px-5">
+        <h2 className="text-center text-3xl font-semibold py-2">Add Photography</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full border border-gray-800 px-8 py-3 rounded-2xl"
+        className="w-full border  px-8 py-3 rounded-2xl"
       >
         <div className="">
           <div className="w-full form-control">
@@ -53,7 +56,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Photography Name"
-              className="input bg-[#1B1B1B] border border-gray-800  focus:border-rose-600"
+              className="input border-gray-600 border   focus:border-rose-600"
               {...register("PhotographyName", { required: true })}
             />
             {errors.PhotographyName && (
@@ -67,7 +70,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Author Name"
-              className="input bg-[#1B1B1B] border border-gray-800  focus:border-rose-600"
+              className="input border-gray-600 border   focus:border-rose-600"
               {...register("AuthorName", { required: true })}
               defaultValue={user?.displayName}
               readOnly
@@ -84,7 +87,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Author email"
-              className="input bg-[#1B1B1B] border border-gray-800  focus:border-rose-600"
+              className="input border-gray-600 border   focus:border-rose-600"
               {...register("AuthorEmail", { required: true })}
               defaultValue={user?.email}
               readOnly
@@ -103,7 +106,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Price"
-              className="input bg-[#1B1B1B] border border-gray-800  focus:border-rose-600"
+              className="input border-gray-600 border   focus:border-rose-600"
               {...register("price", { required: true })}
             />
             {errors.price && (
@@ -119,7 +122,7 @@ const AddPhotography = () => {
             <input
               type="number"
               placeholder="Stock"
-              className="input bg-[#1B1B1B] border border-gray-800  focus:border-rose-600"
+              className="input border-gray-600 border   focus:border-rose-600"
               {...register("Stock", { required: true })}
             />
             {errors.Stock && (

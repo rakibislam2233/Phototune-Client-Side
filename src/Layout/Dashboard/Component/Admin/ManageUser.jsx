@@ -1,24 +1,21 @@
-import { useEffect, useState } from "react";
-import { BsTrash3 } from "react-icons/bs";
 
+import { BsTrash3 } from "react-icons/bs";
+import Lottie from "lottie-react";
+import loader from "../../../../assets/lottie/loading.json";
+import useGetUser from "../../../../Component/Hook/useGetUser";
 const ManageUser = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:5000/users`)
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-      });
-  }, []);
+  const  [users,isLoading] = useGetUser()
   console.log(users);
   return (
-    <div className="w-full h-full p-8">
-      <h2 className="text-2xl font-semibold text-center">Manage User</h2>
+    <>
+    {
+     isLoading ? <div className="w-full h-screen flex justify-center"><Lottie className="w-52" animationData={loader} loop={true} /></div> : users.length ===0 ? <div className="w-full h-screen flex justify-center items-center"><h2 className="font-semibold">No Data Available</h2></div>:<div className="w-full h-full p-8">
+      <h2 className="text-2xl text-center">Manage User</h2>
       <div className="overflow-x-auto py-5">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-[16px] text-black">
+            <tr className="text-black">
               <th>Photo</th>
               <th>Name</th>
               <th>Email</th>
@@ -28,15 +25,15 @@ const ManageUser = () => {
           </thead>
           <tbody>
             {
-                users.map(user=><><tr>
+                users?.map(user=><><tr>
                     <td>
-                        <img className="w-16 h-16 rounded-full" src={user.imageUrl} alt="" />
+                        <img className="w-10 md:w-16 h-10 md:h-16 rounded-full" src={user.imageUrl} alt="" />
                     </td>
                     <td>
-                     <h1 className="font-semibold text-[16px]">{user.name}</h1>
+                     <h1 className="text-[16px]">{user.name}</h1>
                     </td>
-                    <td><h1 className="font-semibold text-[16px]">{user.email}</h1></td>
-                    <td><h1 className="font-semibold text-[16px]">Users</h1></td>
+                    <td><h1 className="text-[16px]">{user.email}</h1></td>
+                    <td><button className="btn btn-sm bg-rose-500">{user.role?user.role:"User"}</button></td>
                     <th>
                       <button className="p-3 bg-rose-500 rounded"><BsTrash3 className="w-6 h-6 text-white"></BsTrash3></button>
                     </th>
@@ -46,6 +43,9 @@ const ManageUser = () => {
         </table>
       </div>
     </div>
+    }
+    </>
+    
   );
 };
 

@@ -1,29 +1,36 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Container from "../Container/Container";
 import { useContext, useState } from "react";
 import { UserContext } from "../../../Provider/Authprovider";
 import { BsBoxArrowInRight } from "react-icons/bs";
+import useAdmin from "../../Hook/useAdmin";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(UserContext);
+  const naviget = useNavigate()
+  const [isAdmin] = useAdmin()
+  const logoutUser = ()=>{
+    logOut()
+    naviget('/login')
+  }
   return (
     <nav className="w-full fixed h-24 z-50 bg-[#1B1B1B]  shadow-lg text-white">
       <Container>
-        <div className="w-full h-24 flex justify-between items-center">
+        <div className="w-full h-24 flex justify-between items-center px-5">
           <div>
             <h3 className="text-2xl font-semibold text-teal-500">Phototune</h3>
           </div>
           <div className="hidden md:block">
             <ul className="flex gap-5 font-semibold">
               <li className="hover:-translate-y-1 transition-all duration-500">
-                <NavLink>Home</NavLink>
+                <NavLink to={'/'}>Home</NavLink>
               </li>
               <li className="hover:-translate-y-1 transition-all duration-500">
-                <NavLink>Auction</NavLink>
+                <NavLink to={'/auction'}>Auction</NavLink>
               </li>
               <li className="hover:-translate-y-1 transition-all duration-500">
-                <NavLink>Photography</NavLink>
+                <NavLink to={'/photography'}>Photography</NavLink>
               </li>
               <li className="hover:-translate-y-1 transition-all duration-500">
                 <NavLink>Author</NavLink>
@@ -58,15 +65,21 @@ const Navbar = () => {
                         alt=""
                       />
                       <h2 className="py-2">{user.displayName}</h2>
-                      <Link to="dashboard">
+                      {
+                       isAdmin ? <Link to="dashboard/adminHome">
+                        <button className="py-2 px-5 bg-teal-500 rounded-full">
+                          View Profile
+                        </button>
+                      </Link> : <Link to="dashboard/userHome">
                         <button className="py-2 px-5 bg-teal-500 rounded-full">
                           View Profile
                         </button>
                       </Link>
+                      }
                     </div>
                     <hr />
                     <button
-                      onClick={() => [logOut(), setOpen(false)]}
+                      onClick={() => [logoutUser(), setOpen(false)]}
                       className="hover:bg-gray-900 w-full py-2 px-5 rounded-xl transition-all duration-500 flex  items-center gap-2"
                     >
                       <BsBoxArrowInRight></BsBoxArrowInRight> Logout

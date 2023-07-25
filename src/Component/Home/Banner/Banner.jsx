@@ -81,7 +81,6 @@ export default Banner;
 /**
 https://i.postimg.cc/tCP6zm7p/rahi1.jpg
 https://i.postimg.cc/jS6v5jbV/emran2.jpg
-https://i.postimg.cc/J7yfhjY9/emran3.jpg
 https://i.postimg.cc/rybfZbJH/emran7.jpg
 
 */
