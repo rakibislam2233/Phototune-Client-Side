@@ -1,9 +1,9 @@
 import axios from "axios";
+import Lottie from "lottie-react";
 import { useContext, useEffect, useState } from "react";
 import { BsPencilSquare, BsTrash3 } from "react-icons/bs";
-import Lottie from "lottie-react";
-import loader from "../../../../assets/lottie/loading.json";
 import { UserContext } from "../../../../Provider/Authprovider";
+import loader from "../../../../assets/lottie/loading.json";
 const MyPhotography = () => {
   const {user} = useContext(UserContext)
   const [data, setData] = useState([]);
@@ -11,7 +11,7 @@ const MyPhotography = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/hostPhotography/${user?.email}`
+        `https://phototuneserverside-production.up.railway.app/hostPhotography/${user?.email}`
       )
       .then((res) => {
         setLoading(false)
@@ -21,7 +21,7 @@ const MyPhotography = () => {
   return (
     <>
     {
-     isLoading ? <div className="w-full h-screen flex justify-center items-center"><Lottie className="w-52" animationData={loader} loop={true} /></div> : data.length ===0 ? <div className="w-full h-screen flex justify-center items-center"><h2 className="font-semibold">No Data Available</h2></div>: <div className="w-full h-full p-8 text-black">
+     isLoading ? <div className="w-full h-screen flex justify-center items-center bg-[#1F1F1F]"><Lottie className="w-52" animationData={loader} loop={true} /></div> : data.length ===0 ? <div className="w-full h-screen flex justify-center items-center"><h2 className="font-semibold">No Data Available</h2></div>: <div className="w-full h-full p-8 text-black">
       <h2 className="text-2xl  text-center teb">My Photography</h2>
       <div className="overflow-x-auto py-5">
         <table className="table">

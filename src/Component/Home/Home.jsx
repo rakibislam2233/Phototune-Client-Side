@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Auction from "./Auction/Auction";
 import Banner from "./Banner/Banner";
 import Blogs from "./Blogs/Blogs";
@@ -8,6 +9,9 @@ import TopBuyer from "./TopBuyer/TopBuyer";
 import TopPhotographar from "./TopPhotographar/TopPhotographar";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div>
       <Banner></Banner>

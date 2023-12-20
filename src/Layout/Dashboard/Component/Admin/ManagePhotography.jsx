@@ -2,9 +2,9 @@ import { BsTrash3 } from "react-icons/bs";
 import usePhotography from "../../../../Component/Hook/usePhotography";
 
 import axios from "axios";
-import Swal from "sweetalert2";
-import { toast } from "react-hot-toast";
 import Lottie from "lottie-react";
+import { toast } from "react-hot-toast";
+import Swal from "sweetalert2";
 import loader from "../../../../assets/lottie/loading.json";
 const ManagePhotography = () => {
   const [photography,refetch,isLoading] = usePhotography();
@@ -20,7 +20,7 @@ const ManagePhotography = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/deleteSinglePhotography/${id}`)
+          .delete(`https://phototuneserverside-production.up.railway.app/deleteSinglePhotography/${id}`)
           .then((res) => {
             refetch()
             if (res.data.deletedCount>0) {
@@ -39,7 +39,7 @@ const ManagePhotography = () => {
   };
   const approved = (id)=>{
     axios
-      .put(`http://localhost:5000/approved/${id}`)
+      .put(`https://phototuneserverside-production.up.railway.app/approved/${id}`)
       .then((res) => {
         refetch()
         if(res.data.modifiedCount>0){
@@ -53,13 +53,13 @@ const ManagePhotography = () => {
   return (
     <>
     {
-     isLoading ? <div className="w-full h-screen flex justify-center items-center"><Lottie className="w-52" animationData={loader} loop={true} /></div> : photography?.length ===0 ? <div className="w-full h-screen flex justify-center items-center"><h2 className="font-semibold">No Data Available</h2></div>: <div className="w-full h-full p-8">
+     isLoading ? <div className="w-full h-screen flex justify-center items-center bg-[#1F1F1F]"><Lottie className="w-52" animationData={loader} loop={true} /></div> : photography?.length ===0 ? <div className="w-full h-screen flex justify-center items-center"><h2 className="font-semibold">No Data Available</h2></div>: <div className="w-full h-full p-8 text-white">
       <h2 className="text-2xl text-center">Manage photo</h2>
       <div className="overflow-x-auto py-5">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className=" text-black">
+            <tr className="text-white">
               <th>Photo</th>
               <th>Name</th>
               <th>Author</th>
@@ -86,7 +86,7 @@ const ManagePhotography = () => {
                   </td>
                   <td>
                     {
-                      photo.status ==="approved" ? <button disabled className="btn btn-sm bg-teal-500">
+                      photo.status ==="approved" ? <button disabled className=" px-3 py-2 rounded-xl bg-teal-500 text-white">
                       {photo.status ? photo.status : "Pending"}
                     </button> :<button onClick={()=>approved(photo._id)} className="btn btn-sm bg-teal-500">
                       {photo.status ? photo.status : "Pending"}

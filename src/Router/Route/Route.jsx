@@ -8,9 +8,6 @@ import AdminHome from "../../Layout/Dashboard/Component/Admin/AdminHome";
 import ManageUser from "../../Layout/Dashboard/Component/Admin/ManageUser";
 import MyPhotography from "../../Layout/Dashboard/Component/User/MyPhotography";
 import UserHome from "../../Layout/Dashboard/Component/User/UserHome";
-import SelectedPhoto from "../../Layout/Dashboard/Component/User/SelectedPhoto";
-import BuyingPhoto from "../../Layout/Dashboard/Component/User/BuyingPhoto";
-import PaymentHistory from "../../Layout/Dashboard/Component/User/PaymentHistory";
 import AddPhotography from "../../Layout/Dashboard/Component/User/AddPhotography";
 import Photography from "../../Component/Photography/Photography";
 import ManagePhotography from "../../Layout/Dashboard/Component/Admin/ManagePhotography";
@@ -82,18 +79,6 @@ const router = createBrowserRouter([
         {
           path:'userHome',
           element:<UserHome></UserHome>
-        },
-        {
-          path:'selectedPhoto',
-          element:<SelectedPhoto></SelectedPhoto>
-        },
-        {
-          path:'selectedPhoto',
-          element:<BuyingPhoto></BuyingPhoto>
-        },
-        {
-          path:'paymentHistory',
-          element:<PaymentHistory></PaymentHistory>
         },
         {
           path:'addPhotography',

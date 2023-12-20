@@ -1,13 +1,12 @@
 
+import axios from "axios";
+import moment from "moment/moment";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../Provider/Authprovider";
-import axios from "axios";
 import Swal from "sweetalert2";
-import moment from "moment/moment";
+import { UserContext } from "../../../../Provider/Authprovider";
 const AddPhotography = () => {
   const date =  moment().format('MMMM DD, YYYY');
-  console.log(date);
     const {user} = useContext(UserContext)
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -22,7 +21,7 @@ const AddPhotography = () => {
           const imageUrl = res.data.data.display_url;
           const {PhotographyName,AuthorName,AuthorEmail,price,Stock} = data;
           const PhotoInfo = { photographyName:PhotographyName,authorName:AuthorName,image:imageUrl,price:parseInt(price),publishedDate:date,availableStock:parseInt(Stock),authorEmail:AuthorEmail,status:'Pending'};
-          axios.post(`http://localhost:5000/hostPhotography`, PhotoInfo)
+          axios.post(`https://phototuneserverside-production.up.railway.app/hostPhotography`, PhotoInfo)
           .then(res=>{
             if(res.data.insertedId){
                 Swal.fire({
@@ -56,7 +55,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Photography Name"
-              className="input border-gray-600 border   focus:border-rose-600"
+              className="input  bg-gray-600 border   focus:border-rose-600"
               {...register("PhotographyName", { required: true })}
             />
             {errors.PhotographyName && (
@@ -70,7 +69,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Author Name"
-              className="input border-gray-600 border   focus:border-rose-600"
+              className="input  bg-gray-600 border   focus:border-rose-600"
               {...register("AuthorName", { required: true })}
               defaultValue={user?.displayName}
               readOnly
@@ -87,7 +86,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Author email"
-              className="input border-gray-600 border   focus:border-rose-600"
+              className="input  bg-gray-600 border   focus:border-rose-600"
               {...register("AuthorEmail", { required: true })}
               defaultValue={user?.email}
               readOnly
@@ -106,7 +105,7 @@ const AddPhotography = () => {
             <input
               type="text"
               placeholder="Price"
-              className="input border-gray-600 border   focus:border-rose-600"
+              className="input  bg-gray-600 border   focus:border-rose-600"
               {...register("price", { required: true })}
             />
             {errors.price && (
@@ -122,7 +121,7 @@ const AddPhotography = () => {
             <input
               type="number"
               placeholder="Stock"
-              className="input border-gray-600 border   focus:border-rose-600"
+              className="input  bg-gray-600 border   focus:border-rose-600"
               {...register("Stock", { required: true })}
             />
             {errors.Stock && (
@@ -145,7 +144,7 @@ const AddPhotography = () => {
           )}
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-teal-500 hover:-translate-y-1 transition-all duration-300 text-white hover:text-black border-none rounded-3xl ">Host Your Photo</button>
+          <button className="btn bg-teal-500 hover:-translate-y-1 transition-all duration-300 text-white hover:text-black border-none rounded-3xl ">Add Your Photo</button>
         </div>
       </form>
     </div>

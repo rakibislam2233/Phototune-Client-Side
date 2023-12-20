@@ -9,13 +9,13 @@ const ManageUser = () => {
   return (
     <>
     {
-     isLoading ? <div className="w-full h-screen flex justify-center"><Lottie className="w-52" animationData={loader} loop={true} /></div> : users.length ===0 ? <div className="w-full h-screen flex justify-center items-center"><h2 className="font-semibold">No Data Available</h2></div>:<div className="w-full h-full p-8">
+     isLoading ? <div className="w-full h-screen flex justify-center"><Lottie className="w-52" animationData={loader} loop={true} /></div> : users.length ===0 ? <div className="w-full h-screen flex justify-center items-center text-white"><h2 className="font-semibold">No Data Available</h2></div>:<div className="w-full h-full p-8">
       <h2 className="text-2xl text-center">Manage User</h2>
       <div className="overflow-x-auto py-5">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-black">
+            <tr className="text-white">
               <th>Photo</th>
               <th>Name</th>
               <th>Email</th>

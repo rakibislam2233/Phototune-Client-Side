@@ -1,14 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
-import { useContext } from "react";
-import Swal from "sweetalert2";
-import { Toaster, toast } from "react-hot-toast";
-import { UserContext } from "../../../Provider/Authprovider";
 import { updateProfile } from "firebase/auth";
+import { useContext, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { Toaster, toast } from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { UserContext } from "../../../Provider/Authprovider";
 const Register = () => {
   const { createNewUser, googleLogin } = useContext(UserContext);
   const naviget = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const {
     register,
     handleSubmit,
@@ -20,9 +23,7 @@ const Register = () => {
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`;
+    const url = `https://api.imgbb.com/1/upload?key=9d44eaf618447b8f95c8ff98785d99c3`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -39,7 +40,7 @@ const Register = () => {
               photoURL: imageUrl,
             });
             const userInfo = { name, email, imageUrl };
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://phototuneserverside-production.up.railway.app/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -70,7 +71,7 @@ const Register = () => {
           email: user?.email,
           imageUrl: user.photoURL,
         };
-        fetch(`http://localhost:5000/users/${user?.email}`, {
+        fetch(`https://phototuneserverside-production.up.railway.app/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

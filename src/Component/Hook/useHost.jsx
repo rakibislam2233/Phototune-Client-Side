@@ -1,14 +1,14 @@
-import { useContext} from "react";
-import { UserContext } from "../../Provider/Authprovider";
 import axios from "axios";
+import { useContext } from "react";
 import { useQuery } from "react-query";
+import { UserContext } from "../../Provider/Authprovider";
 
 const useHost = () => {
     const {user} = useContext(UserContext);
     const {data: isHost, isLoading: isHostLoading,refetch} = useQuery({
         queryKey: ['isAdmin', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/isHost/${user?.email}`);
+            const res = await axios.get(`https://phototuneserverside-production.up.railway.app/isHost/${user?.email}`);
             return res.data.host;
         }
     })

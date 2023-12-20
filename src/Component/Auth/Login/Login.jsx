@@ -1,10 +1,10 @@
+import { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { Toaster, toast } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { useContext, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
-import { AiFillEye,AiFillEyeInvisible } from "react-icons/ai";
 import { UserContext } from "../../../Provider/Authprovider";
 const Login = () => {
   const [hide,setHide] = useState(false)
@@ -12,6 +12,9 @@ const Login = () => {
   const location = useLocation();
   const naviget = useNavigate();
   const from = location?.state?.from.pathname || "/";
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const {
     register,
     handleSubmit,
@@ -44,7 +47,7 @@ const Login = () => {
     .then((result) => {
       const user = result.user;
       const userInfo = {name:user.displayName,email:user?.email,imageUrl:user.photoURL}
-      fetch(`http://localhost:5000/users`,{
+      fetch(`https://phototuneserverside-production.up.railway.app/users`,{
         method:"POST",
         headers:{
           'content-type': 'application/json'

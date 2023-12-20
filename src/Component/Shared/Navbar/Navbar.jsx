@@ -18,24 +18,24 @@ const Navbar = () => {
     <nav className="w-full fixed h-24 z-50 bg-[#1B1B1B]  shadow-lg text-white">
       <Container>
         <div className="w-full h-24 flex justify-between items-center px-5">
-          <div>
+          <Link to={'/'}>
            <img  className="w-40 h-40" src="https://i.postimg.cc/3RcPXm7b/logo.png" alt="" />
-          </div>
+          </Link>
           <div className="hidden md:block">
             <ul className="flex gap-5 font-semibold">
-              <li className="hover:-translate-y-1 transition-all duration-500">
+              <li>
                 <NavLink to={'/'}>Home</NavLink>
               </li>
-              <li className="hover:-translate-y-1 transition-all duration-500">
+              <li>
                 <NavLink to={'/photography'}>Photography</NavLink>
               </li>
-              <li className="hover:-translate-y-1 transition-all duration-500">
+              <li>
                 <NavLink to={'/author'}>Author</NavLink>
               </li>
-              <li className="hover:-translate-y-1 transition-all duration-500">
+              <li>
                 <NavLink>Blogs</NavLink>
               </li>
-              <li className="hover:-translate-y-1 transition-all duration-500">
+              <li>
                 <NavLink>Contact</NavLink>
               </li>
             </ul>

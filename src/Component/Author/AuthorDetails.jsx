@@ -10,13 +10,13 @@ const AuthorDetails = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/${id}`).then((res) => {
+    axios.get(`https://phototuneserverside-production.up.railway.app/users/${id}`).then((res) => {
       setAuthorDetails(res.data);
     });
   }, [id]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/hostPhotography/${authorDetails?.email}`)
+      .get(`https://phototuneserverside-production.up.railway.app/hostPhotography/${authorDetails?.email}`)
       .then((res) => {
         setLoading(false);
         setData(res.data);

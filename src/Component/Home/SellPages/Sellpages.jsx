@@ -4,10 +4,7 @@ const Sellpages = () => {
   return (
     <div className="w-full py-10">
       <Container>
-        {/* html
-Copy code
-<div class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"> */}
-        <div className="w-full h-full bg-gradient-to-r from-purple-500 via-pink-500 to-teal-500 px-10 py-16 rounded-2xl ">
+        <div className="w-full h-full bg-[url('https://i.postimg.cc/hthZFFzb/Photos-Collections.jpg')] px-10 py-16 rounded-2xl bg-cover bg-no-repeat bg-slate-700 bg-blend-multiply  ">
          <div className="md:flex justify-between items-center space-y-4 md:space-y-0">
          <div className="space-y-4">
          <h2 className="text-4xl font-semibold">
@@ -22,9 +19,6 @@ Copy code
             <button className="py-3 px-8 border  rounded-full hover:bg-teal-500 transition-all duration-500 font-semibold hover:border-teal-500">Create Item</button>
             <button className="py-3 px-8 border  rounded-full hover:bg-teal-500 transition-all duration-500 font-semibold hover:border-teal-500">Discover More</button>
           </div>
-         </div>
-         <div>
-            <img src="https://i.postimg.cc/DzxmVFkR/cta-img-1.png" alt="" />
          </div>
          </div>
         </div>

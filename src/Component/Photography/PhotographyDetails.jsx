@@ -1,22 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Container from "../Shared/Container/Container";
 import SetctionTitle from "../Shared/SetctionTitle/SetctionTitle";
-import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
-import { Pagination } from "swiper";
 import { AiFillHeart } from "react-icons/ai";
+import { Pagination } from "swiper";
 import usePhotography from "../Hook/usePhotography";
 const PhotographyDetails = () => {
   const { id } = useParams();
   const [photography] = usePhotography()
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    axios.get(`http://localhost:5000/singlePhotography/${id}`).then((res) => {
+    window.scrollTo(0, 0)
+  }, [id])
+  useEffect(() => {
+    axios.get(`https://phototuneserverside-production.up.railway.app/singlePhotography/${id}`).then((res) => {
       setSingleData(res.data);
     });
   }, [id]);
