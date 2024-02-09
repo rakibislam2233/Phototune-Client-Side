@@ -8,7 +8,7 @@ const useHost = () => {
     const {data: isHost, isLoading: isHostLoading,refetch} = useQuery({
         queryKey: ['isAdmin', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`https://phototuneserverside-production.up.railway.app/isHost/${user?.email}`);
+            const res = await axios.get(`https://phototune-server-side-l7ll.vercel.app/isHost/${user?.email}`);
             return res.data.host;
         }
     })

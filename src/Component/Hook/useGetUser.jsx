@@ -4,7 +4,7 @@ const useGetUser = () => {
     const [users, setUsers] = useState([]);
   const [isLoading,setLoading] = useState(true);
   useEffect(() => {
-    axios.get(`https://phototuneserverside-production.up.railway.app/users`)
+    axios.get(`https://phototune-server-side-l7ll.vercel.app/users`)
       .then((res) => {
         setUsers(res.data);
         setLoading(false)

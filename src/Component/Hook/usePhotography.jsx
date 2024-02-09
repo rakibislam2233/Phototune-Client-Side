@@ -4,7 +4,7 @@ const usePhotography = () => {
     const {data: photography, isLoading,refetch} = useQuery({
       queryKey: ['photography'],
       queryFn: async () => {
-          const res = await axios.get(`https://phototuneserverside-production.up.railway.app/getAllPhotography`);
+          const res = await axios.get(`https://phototune-server-side-l7ll.vercel.app/getAllPhotography`);
           return res.data;
       }
   })

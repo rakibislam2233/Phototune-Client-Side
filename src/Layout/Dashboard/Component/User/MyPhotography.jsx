@@ -11,7 +11,7 @@ const MyPhotography = () => {
   useEffect(() => {
     axios
       .get(
-        `https://phototuneserverside-production.up.railway.app/hostPhotography/${user?.email}`
+        `https://phototune-server-side-l7ll.vercel.app/hostPhotography/${user?.email}`
       )
       .then((res) => {
         setLoading(false)

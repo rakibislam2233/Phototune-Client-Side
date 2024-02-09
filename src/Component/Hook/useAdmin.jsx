@@ -7,7 +7,7 @@ const useAdmin = () => {
     const [isAdmin,setAdmin] = useState('');
     const [isLoading2,setLoading] = useState(true);
     useEffect(()=>{
-        axios.get(`https://phototuneserverside-production.up.railway.app/isAdmin/${user?.email}`)
+        axios.get(`https://phototune-server-side-l7ll.vercel.app/isAdmin/${user?.email}`)
         .then(res=>{
             setLoading(false)
             setAdmin(res.data.admin)

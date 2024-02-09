@@ -40,7 +40,7 @@ const Register = () => {
               photoURL: imageUrl,
             });
             const userInfo = { name, email, imageUrl };
-            fetch(`https://phototuneserverside-production.up.railway.app/users`, {
+            fetch(`https://phototune-server-side-l7ll.vercel.app/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -71,7 +71,7 @@ const Register = () => {
           email: user?.email,
           imageUrl: user.photoURL,
         };
-        fetch(`https://phototuneserverside-production.up.railway.app/users/${user?.email}`, {
+        fetch(`https://phototune-server-side-l7ll.vercel.app/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

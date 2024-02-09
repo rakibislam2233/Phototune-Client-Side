@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [isHost, isLoading, refetch] = useHost();
   const makeHost = () => {
     axios
-      .put(`https://phototuneserverside-production.up.railway.app/setHost/${user?.email}`)
+      .put(`https://phototune-server-side-l7ll.vercel.app/setHost/${user?.email}`)
       .then((res) => {
         refetch();
         if (res.data.modifiedCount > 0) {

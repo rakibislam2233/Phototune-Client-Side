@@ -21,7 +21,7 @@ const AddPhotography = () => {
           const imageUrl = res.data.data.display_url;
           const {PhotographyName,AuthorName,AuthorEmail,price,Stock} = data;
           const PhotoInfo = { photographyName:PhotographyName,authorName:AuthorName,image:imageUrl,price:parseInt(price),publishedDate:date,availableStock:parseInt(Stock),authorEmail:AuthorEmail,status:'Pending'};
-          axios.post(`https://phototuneserverside-production.up.railway.app/hostPhotography`, PhotoInfo)
+          axios.post(`https://phototune-server-side-l7ll.vercel.app/hostPhotography`, PhotoInfo)
           .then(res=>{
             if(res.data.insertedId){
                 Swal.fire({

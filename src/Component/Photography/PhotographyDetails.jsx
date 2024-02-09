@@ -19,7 +19,7 @@ const PhotographyDetails = () => {
     window.scrollTo(0, 0)
   }, [id])
   useEffect(() => {
-    axios.get(`https://phototuneserverside-production.up.railway.app/singlePhotography/${id}`).then((res) => {
+    axios.get(`https://phototune-server-side-l7ll.vercel.app/singlePhotography/${id}`).then((res) => {
       setSingleData(res.data);
     });
   }, [id]);

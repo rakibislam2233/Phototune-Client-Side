@@ -47,7 +47,7 @@ const Login = () => {
     .then((result) => {
       const user = result.user;
       const userInfo = {name:user.displayName,email:user?.email,imageUrl:user.photoURL}
-      fetch(`https://phototuneserverside-production.up.railway.app/users`,{
+      fetch(`https://phototune-server-side-l7ll.vercel.app/users`,{
         method:"POST",
         headers:{
           'content-type': 'application/json'
